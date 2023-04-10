@@ -1,0 +1,801 @@
+    0 rem pirates!
+    4 poke52,142:poke56,142:clr:poke198,0
+    5 t$="":dimna$(15):gosub40:gosub19000:goto50
+    7 vz=va+2*v:pokevz,fnlb(zv):pokevz+1,zv/kp:return
+    9 vz=142.5*kp+2*v:zv=peek(vz)+kp*peek(vz+1):return
+   10 pokea0,fnlb(f*kp):pokea1,f:pokea2,fnlb(t*kp):pokea3,t:pokea4,fnlb(l*kp)
+   11 pokea5,l:sysm64k:return
+   12 pokea0,f:pokea2,fnlb(t*kp):pokea3,t:pokea4,fnlb(l*kp)
+   13 pokea5,l:syssb:return
+   20 open15,8,15,"i":print#15,"s0:main":close15:save"main",8:end
+   30 pokea1,y:pokea3,dy:pokea4,co:pokea0,x:pokea2,dx:syswn:return
+   40 poke792,193:poke808,234:poke56333,129:return
+   41 poke56333,127:poke808,237:poke792,71:return
+   50 vb=150*kp:wn=153.5*kp:cty=143*kp:cln=24:nc=peek(cty+1023)-3:prs=148*kp
+   55 pty=prs+32:mp=155.5*kp:tr=142*kp:so=158*kp:lg=147*kp:dta=6*kp:sg=-1
+   60 open8,8,8,"0:names"+str$(peek(prs+29))+",s,r":fori=0to15:input#8,na$(i):nexti
+   61 fori=0to9:input#8,rk$(i):nexti:close8:na$="":p$="{left}0 pcs":a=prs+80
+   62 z=peek(a):ifzthenna$=na$+chr$(z):a=a+1:goto62
+   70 sn=peek(pr+26):fori=1tosqr((sn+1)*1.9):readx$:nexti:datahides,tobacco,sugar
+   86 df=peek(prs-3):gosub12000:day=fndp(lg+4*peek(lg)-3)
+   88 yr=int(day/360):day=day-yr*360
+  990 cc=peek(prs+25):cp=cty+cln*cc:gosub9180:gosub12500
+  995 me=fndp(pty+3):nn=peek(cp+3):ll=2:px=1:mt=-1
+  996 z=peek(prs+18):ifz=1thengosub1000:goto2999
+  997 sl=sgn(z):ifzand4thenpokeprs+18,zand3:gosub3937
+  998 goto3200
+ 1000 gosub12500
+ 1015 zz=int(day/30):gosub1099
+ 1017 zz=day-zz*30+1:t$=t$+str$(zz)+","+str$(yr+1560+sn*20)
+ 1020 t$=t$+"{CBM-S} continue travelS party statuS personal statuS ship&s loG mapS"
+ 1023 zz=(ll=0)*(((pd=0)or(pd>24))+.5)
+ 1025 t$=t$+" citieS take sun sighT"
+ 1027 ifll=1thent$=t$+" searcH"
+ 1028 iflland2thent$=t$+" save gamE"
+ 1030 x=10:y=4:gosub8000:a=cp:gosub2950:ifc=1thenreturn
+ 1040 ifc<8thena=pty:oncgosub0,2500,1900,7000,2299,2000,6500:goto1000
+ 1090 ifc=8-(zz<>0)thengosub2400:goto1000
+ 1095 goto1000
+ 1098 z=yr+1560+sn*20
+ 1099 t$=mid$("janfebmaraprmayjunjulaugsepoctnovdecjan",zz*3+1,3):return
+ 1900 print"{clr}":x=9:y=2:dx=29:dy=9:co=3:gosub30:t$="":ifpeek(prs+20)thent$="(married)"
+ 1910 print:print,"{down}personal status: "t$
+ 1920 fori=1to4:z=iand3:gosub2195:print," "co$f$,:z=peek(prs+13+(iand3))
+ 1925 ifzthenprintrk$(z):goto1935
+ 1926 z=fnex(prs+8+(iand3)):ifz>1thenprint"(letter of marque)":goto1935
+ 1927 ifz>-1thenprint"(no title)":goto1935
+ 1928 ifz>-4thenprint"wary":goto1935
+ 1929 print"hostile"
+ 1935 nexti:gosub8435:print,"{blk} age:"yr+25,t$" health"
+ 1940 print,"{pur} wealth:"fndp(prs+2)*10"gold pcs.":print,"{grn} land:"peek(pr+5)*50"acres"
+ 1980 poke214,12:print
+ 1982 gosub8420:print,"{blk}reputation: ":print,"  {blu}"f$;:gosub8445:printf$
+ 1983 gosub2980:return
+ 2000 co$="{cyn}{red}{blu}{grn}":gosub12500:pokevb+16,40:pokevb+17,108
+ 2005 print"{down}  city information":print:poke53269,1:mo=2:pokea5,0
+ 2007 poke214,4:print:print"select a city:{down}":print,"(done)":t$="villahermosa"
+ 2008 zz=fndp(45):pokea2,peek(zz+3):pokea3,peek(zz+4):pokea4,12:fork=0tonc
+ 2010 a=cty+k*cln+12:pokea0,fnlb(a):pokea1,a/kp:sysm64k:ifk/3=int(k/3)thenprint
+ 2020 z=peek(a-9):printmid$(co$,z+1,1);:if(peek(a-12)and128)=0thenprint"{yel}";
+ 2022 print" "t$;:nextk
+ 2025 ifpeek(vb+14)=0then2025
+ 2030 c=3*(int(peek(vb+17)/8)-15)+int(peek(vb+16)/53):ifc<0thenreturn
+ 2035 ifc>ncthenc=nc
+ 2040 a=ct+cl*c:gosub2140:goto2025
+ 2100 gosub2900:t$="":gosub12500
+ 2140 pokea0,19:pokea1,0:pokea2,16:pokea3,8:pokea4,3:syswn:print"{home}{blk}":gosub2950
+ 2150 print,,c$
+ 2160 ifnotpeek(a)and128thenprint,," {down}{down}{yel} no info{blk}":return
+ 2165 z=peek(a+3):gosub2195:print,," ( "co$;f$"{blk})"
+ 2170 z=peek(a+4)and15:ifzthenprint,,z;"fort(s)"
+ 2180 print,,peek(a+5)*10;"soldiers.":print,,(peek(a+6)+1)*100;"citizens."
+ 2185 ifpeek(a+7)thenprint,," gold:"peek(a+7)"{left},000"
+ 2190 t$="strugglingsurviving prosperingwealthy   ":z=int(peek(a+8)/64)
+ 2193 print,," "mid$(t$,z*10+1,10):return
+ 2195 f$="{cyn}spanish{red}english{blu}french {grn}dutch  {blk}pirate ":co$=mid$(f$,z*8+1,1)
+ 2196 f$=mid$(f$,z*8+2,7)
+ 2197 z=len(f$):ifright$(f$,1)=" "thenf$=left$(f$,z-1):goto2197
+ 2199 f$=f$+" ":return
+ 2250 fork=4to7:aa=tr+24+k*8:if(peek(aa+3)and63)<>ccorpeek(aa)=0then2280
+ 2261 z=peek(aa+1):gosub2290
+ 2264 x=4:y=8:ff=35:gosub8590:dz=1:pokeaa+3,rnd(0)*nc
+ 2265 f$="street":t$=co$:gosub8290:ifv<>1then2280
+ 2266 pokeaa,0:f$="spaniard":gosub3391:sg=4:z=peek(pr+6):gosub8430:co$="your "+t$
+ 2270 ff=44:x=1:y=1:gosub8590:a=tr+8:gosub3590
+ 2280 nextk:return
+ 2290 co$=rk$((zand7)+2)+" "+na$(int(z/8)):return
+ 2295 co$=rk$(peek(prs+nn+13))+" "+na$:return
+ 2299 fork=0to2:a=tr+8*k:gosub2300:nextk:return
+ 2300 ifpeek(a)=0thenreturn
+ 2310 poke53280,1:poke53282,9:poke53283,0:sysvb+3:poke53265,0:poke648,228:aa=a
+ 2320 zz=peek(a):x=peek(a+1):y=peek(a+2)
+ 2325 f=15:t=216:l=4:gosub12:poke53281,8:x=(x-4)*64-32:y=(y-6)*32:pokemp+15,255
+ 2328 f=4:t=232:l=4:gosub10
+ 2330 pokemp+6,fnlb(x):pokemp+7,x/kp:pokemp+8,fnlb(y):pokemp+9,y/kp:sysmp
+ 2332 f=0:l=80/kp:z=peek(648):t=z:gosub12:gosub5990
+ 2335 forj=0to3:if(zzand(2^j))=0thenx=(jand1)*21:y=2+6*(jand2):gosub2390
+ 2340 nextj:poke53264,0:pokesx,182:pokesy,151:pokevb+15,0:pokesc,1:sysvb
+ 2345 poke53280,0:ifaa=trthenprint"{home}{wht}  pirate treasure map"
+ 2346 ifaa=tr+8thenz=peek(prs+6):gosub8430:print"{home}{wht}  map to lost "t$
+ 2347 ifaa=tr+16thenprint"{home}{wht}  map to lost inca treasure!"
+ 2350 ifpeek(aa)and16thena=peek(aa+3)*cln+cty:gosub2950:print"  ...somewhere near "c$
+ 2360 pokesp,183+(aa=tr+8):poke53269,1:ifpeek(56320)and16then2360
+ 2370 gosub12500:pokevb+15,1:return
+ 2390 t$="{CBM-T}{CBM-T}{CBM-T}{CBM-T}    missing!   {CBM-T}{CBM-T}{CBM-T}{CBM-T}":gosub8005:return
+ 2400 ifll>=2then2450
+ 2405 f$="":zz=3:gosub9000:x=6:y=7:fork=0to2:aa=tr+8*k:z=peek(aa)
+ 2410 ifpeek(pty+1)<>peek(aa+1)orpeek(pty+2)<>peek(aa+2)orz=0then2445
+ 2415 z=peek(prs+6):gosub8430:co$="your "+t$:c1=15:c2=7
+ 2420 f$="treasure":ifk=1thenf$="rescue"+str$(zand1):zz=((z-1)and7)+8:c1=0:c2=10
+ 2422 xx=1:x=-2:y=9:gosub8100:ff=47+k:ifk=1thenpokea0,15:pokea1,zz:syswn+18
+ 2425 zz=-int(rnd(0)*9+5)*100*(k=0):ifk=2thenzz=10000
+ 2430 sg=3:x=5:y=1:gosub8590:zz=-zz:gosub3990:pokeaa,0
+ 2435 ifk<>1thenc1=8:c2=0:gosub7900:goto2445
+ 2440 y=8:ff=43:gosub8590:a=tr+16:gosub3590:c1=26:c2=peek(prs+6):gosub7900
+ 2441 c=6:gosub8400:fori=4to7:poketr+24+i*8,0:nexti
+ 2445 nextk:iff$=""thenff=34:gosub8590
+ 2449 return
+ 2450 gosub12500:gosub2495:ifa$<>"2"thengosub2480
+ 2451 ff=55:gosub8600:t$=t$+"{CBM-S}":f$=t$
+ 2452 t$=f$:x=6:y=6:gosub8000
+ 2454 ifc<3thengosub2495:ifa$="2"thenreturn
+ 2455 ifc<3thengosub2480:return
+ 2456 ifc>3thenzz=c:goto2470
+ 2460 t$="format disk":gosub3970:ifc<>3then2452
+ 2461 open15,8,15,"n0:p!save,p3":close15:open8,8,8,"fame,s,w"
+ 2462 a$=chr$(13):fori=0to9:print#8,"---";a$;"--";a$;0:nexti:close8:goto2452
+ 2470 gosub2495:ifa$="3"then2475
+ 2472 t$="game save disk":gosub2490:ifa$<>"3"then2452
+ 2475 f$="savegame"+str$(zz-3):bf=tr:ln=7*kp:gosub17700
+ 2476 t$="save completed{CBM-S}":gosub7999
+ 2480 t$="game disk side 2":gosub2490:ifa$<>"2"then2480
+ 2485 return
+ 2490 t$="insert "+t$+"{CBM-T} then press triggeR":x=6:y=16:gosub8000
+ 2495 poke53269,0:open15,8,15,"i0":open2,8,2,"#1":print#15,"u1";2;0;18;0
+ 2496 print#15,"b-p";2;163:get#2,a$:close2:close15:return
+ 2500 print"{clr}{down}"
+ 2505 pokea0,2:pokea1,1:pokea2,19:pokea3,9:pokea4,6:syswn:t$="{rght}{rght}{rght}{rght}":gosub9180
+ 2510 print"{rght}{rght}{rght}"na$"&s party":printt$"crew:"fndp(pty+3)"men"
+ 2520 printt$"cannon:"peek(pty+5):printt$"{pur}gold:"fndp(pty+7)p$
+ 2525 z=kp*peek(pty+9)+peek(pty+13):printt$"{grn}food:"int(z/fndp(pty+3))"days"
+ 2530 gosub8440:printt$"{blk}crew is "f$
+ 2535 printt$"{blu}goods:"peek(pty+10)"tons":printt$"{cyn}"x$":"peek(pty+11)"tons{blk}"
+ 2560 t$="prisoners{SHIFT-@} ":fori=88to95:zz=peek(tr+i):ifzz=0then2570
+ 2565 z=zzand127:gosub2290:t$=t$+co$:f$=" (hunter{SHIFT-POUND} ":ifzz>127thenf$=" (pirate{SHIFT-POUND} "
+ 2566 t$=t$+f$
+ 2570 nexti:iflen(t$)>12thenx=1:y=14:gosub8005
+ 2580 t$="ships{SHIFT-@} ":gosub5920:x=15:y=10:gosub8005
+ 2590 gosub2980:return
+ 2950 c$="":fori=a+12toa+23:c$=c$+chr$(peek(i)):nexti:ifmo=2thenreturn
+ 2955 z=len(c$):ifright$(c$,1)=" "thenc$=left$(c$,z-1):goto2955
+ 2960 return
+ 2980 xs=x:ys=y:t$=" press trigger to continuE":x=9:y=21:gosub8000:x=xs:y=ys
+ 2985 pokea0,9:pokea1,21:pokea2,28:pokea3,2:pokea4,co:syswn:return
+ 2990 rr=0:ifpeek(vb+14)=1then2990
+ 2992 rr=rr+1:ifpeek(vb+14)=0thenonrr/199+1goto2992,2994
+ 2993 pokevb+16,0:return
+ 2994 gosub2980:goto2993
+ 2999 gosub8500:gosub5000
+ 3000 gosub12500:a=cp:gosub2950:print:print"  you have arrived at the lovely"
+ 3014 ifpeek(cp)and64thenprint"  inland village of "c$".":goto3020
+ 3015 print"  sea-side town of "c$"."
+ 3020 zz=peek(cp+4):ifzz>1thenprint" "zz"forts guard the harbor entrance."
+ 3021 ifzz=1thenprint"  a fort guards the harbor entrance."
+ 3022 z=nn:gosub2195:pokeprs+25,cc
+ 3024 print"  the "co$;f$"{blk}flag flies over the town."
+ 3026 ifcc=peek(prs-1)thenprint"  the treasure fleet is in the harbor!":dz=dz+1
+ 3027 ifcc=peek(prs-2)thenprint"  the silver train is in town!":dz=dz+1
+ 3030 f$="town1":x=19:y=8:c1=0:c2=5:gosub8100
+ 3032 t$="sail into harboR":iflland1thent$="march into towN"
+ 3035 t$="will you{CBM-B} "+t$+" attack towN sneak into towN leave towN"
+ 3040 z=peek(cp+11):vv=vvand3:ifvt<>cpthenmt=-1:vv=0
+ 3042 vt=cp:x=1:y=6:gosub8000:ifc=4thengosub12500:goto2999
+ 3050 ifc=2then3100
+ 3055 ifc=3thenvv=vvor10:goto3800
+ 3060 cx=rnd(0)*(fnex(prs+8+nn)+fnex(cp+9)-me/100):ifcx>-.5orpeek(cp+4)=0then3200
+ 3070 gosub12500:t$="as you approach the towNthe fort opens fire{CBM-S}":x=1:y=2
+ 3075 gosub8005:ifcx>-1orll<>2then3032
+ 3080 t$="one of your ships is sunk{CBM-K}":x=9:y=12:gosub8000:gosub4900:goto2999
+ 3099 gosub2980:return
+ 3100 ft=0:xm=0:ht=0:fori=1to2:ifpeek(prs-i)=ccthenpokecp+5,fnrg(peek(cp+5)+10)
+ 3101 nexti:ifll=2then3110
+ 3102 iffndp(pty+3)>peek(cp+5)*15orpeek(cp+4)=0orpeek(cp+5)<10then3122
+ 3103 gosub6700:zz=0:gosub3980:ifv=0then2999
+ 3104 ifpeek(cp+4)=0then3160
+ 3106 goto3122
+ 3110 ifpeek(cp+4)=0thenf$="street":t$="town":goto3125
+ 3112 ft=1:sa=dta+kp+21*7:pokesa+2,peek(cp+5)/2+.5:pokesa+3,12*(peek(cp+4)and7)
+ 3115 pokesa,8:pokesa+1,nn:pokesa+4,0:gosub5460:ifk=0then2999
+ 3120 pokecp+5,peek(cp+5)/2+fngs(59)/10+.5
+ 3122 x=3:y=3:ff=61:gosub8590:t$="fort":f$="court"
+ 3125 y(1)=3+rnd(x)*3:t(1)=5+peek(cp+4)
+ 3130 gosub8450:t(0)=peek(cp+5)*10+5:y(0)=me-xm:gosub8300:zz=xm:gosub3980
+ 3150 ifv=0ordlthenc=-4:gosub8400:c=-(8+nn):gosub8400:goto2999
+ 3160 pokecp+5,(fngs(56)+9)/10:gosub8180:t$="citizens":gosub3610:goto2999
+ 3200 c1=1:gosub7890:gosub12500:poke(cp),peek(cp)or128
+ 3210 a=cp:gosub2140:f$="village"+str$(3-ll):x=1:y=3:c1=0:c2=9:gosub8100:goto3300
+ 3250 t$="we do not trade with pirates{CBM-K}"
+ 3260 if(nn=0)and(peek(cp+8)>(peek(dt+249)+25*fnex(pr+13)))thengosub7999:goto3300
+ 3261 f$="merchant":x=11:y=9:gosub8099
+ 3262 k=0:ifpeek(pty+15)<2orll=3then3264
+ 3263 t$="would you care tOsell any ships{CBM-B}":mo=0:gosub3285
+ 3264 ifll=3or(k=0andpeek(pty+20)<8)then3270
+ 3265 t$="would you like anYships repaired{CBM-B}":mo=1:gosub3285
+ 3270 z=peek(cp+8)*(1+abs(6-mn)/6):zz=peek(cp)
+ 3271 fori=0to3:t(i)=int((1+rnd(0))*z*(peek(cp+6)+10)/150):p(i)=int(z/50+3-i/2)
+ 3272 ifzzand2^(3-i)thenp(i)=int(p(i)/2+1)
+ 3273 ifi>1and((zzand2^(6-i))<>0)thenp(i)=2*p(i)
+ 3275 nexti:t(0)=15*t(0):p(0)=1:ift(0)>2500thent(0)=2500
+ 3276 p(4)=5:t(4)=0:ifmt>=0thent(0)=mt
+ 3278 c=0:t$="merchant":xm=fndp(pt+7):gosub8210:mt=fngs(7)
+ 3279 ifabs(xm-fndp(pt+7)>20)thenpokecp+8,peek(cp+8)*.95+12
+ 3280 goto3300
+ 3285 x=18-14*mo:y=mo:gosub8005
+ 3286 t$=" no thanks{CBM-S}"
+ 3290 k=0:fori=1topeek(pty+15):x=peek(pty+19+i):zz=xand7:gosub4290:k=k-(x>7)
+ 3291 z=(xand248)/8:ifmo=0thenz=10-z
+ 3292 t$=t$+" "+f$+"{CBM-T}  ":ifzthent$=t$+str$((zz+1)*z*50)+" gold pcS":goto3294
+ 3293 t$=t$+" no damagE"
+ 3294 nexti:x=20-14*mo:y=3+mo:gosub8000:c=int(c/2-.5):ifc<0thenreturn
+ 3295 x=peek(pty+20+c):z=(xand248)/8:ifmo=0thenz=10-z
+ 3296 zz=z*((xand7)+1)*10*(.5+(mo=0)):gosub3990:ifzz<0then3286
+ 3297 ifmo=1thenpokepty+20+c,xand7:t$="ship repaireD":gosub7999:ifk>1then3286
+ 3298 ifmo=0thenzz=c:gosub4905:t$="ship solD":gosub7999:ifpeek(pty+15)>1then3286
+ 3299 return
+ 3300 zz=3:gosub9000:vv=vvor-(peek(cp+6)<6)
+ 3303 a=cp:gosub2950:t$=c$+" is bustlinGwith activity.  do you{SHIFT-@} {grn}"
+ 3305 ifvvand1thent$=t$+"{red}"
+ 3306 t$=t$+"visit the governoR{grn} visit a taverN{grn}"
+ 3308 t$=t$+" trade with a merchanT{grn}":ifvvand8thent$=t$+"{red}"
+ 3309 t$=t$+" divide up the plundeR{grn} check informatioN leave towN"
+ 3320 x=12:y=15:gosub8000:print"{blk}";:ifc=6thengosub1000:goto3303
+ 3325 if(vvand(2^(c-2))and9)<>0thent$="you can&t do that{CBM-S}":gosub7999:goto3303
+ 3330 oncgoto0,3340,3400,3250,3900,0,3332
+ 3332 zz=int(me*(fnex(pty+17)-3)/15):ifzz<=-methenzz=-me+1
+ 3335 x=6:y=16:t$="roll call revealSthat"+str$(-zz)+" crew memberShave deserted{CBM-S}"
+ 3336 ifzz<-1thengosub3975:gosub8000
+ 3337 c=tr+88+rnd(0)*8:z=peek(c)and127:ifz=0orll<>2then3339
+ 3338 gosub2290:pokec,0:t$=co$+" jumpSoverboard and escapes{CBM-K}":gosub8000
+ 3339 gosub8500:goto2999
+ 3340 ax=0:vv=vvor1:f$="governor":rd=14:gosub8098
+ 3341 gosub2295:t$="%my dear "+co$+"{CBM-D}":v=0:fori=0to3
+ 3342 a=prs+64+nn*4+i:ifpeek(a)thenz=i:gosub2195:ifvthent$=t$+"anD"
+ 3343 ifpeek(a)=1thent$=t$+"{grn}we are allieDwith the "+f$:v=vor1
+ 3344 ifpeek(a)=255thent$=t$+"{red}we are at waRwith the "+f$:v=vor2
+ 3345 nexti:if(vand2)=0orfnex(prs+8+nn)<2thent$=t$+".{CBM-M}":goto3347
+ 3346 t$=t$+"{CBM-Z}{blu}i charge you to seeKout and destroy ouRenemy&s ships and towns!{CBM-M}"
+ 3347 ifvthenx=2:y=2:gosub8000
+ 3348 gosub2250
+ 3350 fork=88to95:z=peek(tr+k):ifz<128orint(z/32)-4<>nnthen3354
+ 3351 poketr+k,0:pokeprs+8+nn,(peek(prs+8+nn)+(zand7)/2+1)and255
+ 3352 z=zand127:gosub2290:ff=54:x=2:y=12:gosub8590
+ 3354 nextk:a=pr+13+nn:z=peek(a)+1:ln=fnex(a-5)-int(z^2+2):ifln<0orz>9then3360
+ 3355 pokea,z:pokea-5,peek(a-5)-ln:z=nn:gosub2195
+ 3356 c$=f$:co$=rk$(peek(a))+" "+na$:x=-17:y=9:f$="award":rd=14:gosub8099
+ 3357 x=1:y=1:ff=7:c1=2:c2=peek(a)+nn*64:gosub7900:sg=0:gosub8590
+ 3358 ifln>0thenpokeprs+5,fnrg(peek(prs+5)+ln):zz=ln*50:y=10:ff=13:gosub8590
+ 3359 y=2:ifpeek(prs+6)<4and(peek(prs+18)and1)=0thengosub9250
+ 3360 aa=tr+88+int(rnd(0)*8):z=peek(aa)and127:ifz=0then3367
+ 3362 gosub2290:ff=53:zz=((zand7)+1)*50*int(rnd(0)*3+1):x=4:y=3:gosub8590
+ 3364 ifc=5thenzz=-zz:gosub3990:pokeaa,0
+ 3367 x=2:y=3:a=cp:gosub2950:iffnex(prs+8+nn)<-3then3388
+ 3368 zz=20*(4-fnex(prs+8+nn)^3):ifzz>=10then3380
+ 3369 z=peek(cp+11):ln=(zand12)/4:ifzand224then3710
+ 3370 zz=(peek(pr+13+nn)+fndp(pr+2)/999+df/2)/(ln+1):ifzz<.5orpeek(pr+20)then3388
+ 3371 gosub3390:z=ln*2+1+nn*32:gosub2290:ifpeek(prs+23)=4thenzz=zz*2
+ 3372 x=1:y=1:ff=15:gosub8590:gosub2295:ifc<>7then3378
+ 3373 ifzz<4thengosub8445:c$=f$:ff=16+int(zz/2):gosub8590:goto3300
+ 3374 ff=18:gosub8590:ifc<>6then3300
+ 3375 f$="street":t$="suitor":gosub8290:ifv=0then3300
+ 3376 gosub12500:pokeprs+20,ln+1:f$="wedding":x=-4:y=9:gosub8099
+ 3377 ff=19:x=10:y=1:sg=1:gosub8590:pokecp+11,peek(cp+11)or64:goto3300
+ 3378 ff=45:ifzz*rnd(0)<=2then3300
+ 3379 vv=vvand247:gosub8590:pokecp+11,peek(cp+11)or128:c=21:gosub8400:goto3300
+ 3380 z=nn:gosub2195:co$=f$:ff=5:x=2:y=4:iffnex(prs+nn+8)<0thenff=6
+ 3381 gosub8590:ifc<>5then3300
+ 3382 gosub3990:ifzz<0then3300
+ 3385 pokecp+9,0:pokeprs+8+nn,0:c=8+nn:gosub8400:gosub8400:goto3300
+ 3388 ifax=0thent$="the governor haSnothing to say{CBM-S}":x=5:y=20:gosub8000
+ 3389 goto3300
+ 3390 f$="bride"+str$((peek(cp+11)and12)/4)
+ 3391 x=-17:y=9:c1=0:k=(peek(cp+11)and3)+(ccand4)+490:c2=peek(dta+k):gosub8100
+ 3392 pokea0,15:pokea1,peek(dta+k+8):syswn+18
+ 3393 pokea0,11:pokea1,(ccand3)+11:syswn+18:return
+ 3400 ax=0:f$="tavern":gosub8097
+ 3410 zz=int((fnex(prs+4)+7-df)*(rnd(0)+1)*peek(cp+6)/9)
+ 3415 z=(4-df)*6:iffndp(pty+3)<4*zandzz<zthenzz=z
+ 3416 z=16*(peek(pty+15)*2+peek(pty+14)):if(me+zz)>zthenzz=z-me
+ 3420 if(zz<=2)or(vvand2)then3500
+ 3425 f$="crew":rd=14:gosub8097:gosub8420:gosub2295
+ 3430 t$="'look! it&s that "+f$+"{CBM-T}sea-dog: "+co$
+ 3435 t$=t$+"'{CBM-S}a rowdy group of"+str$(zz)+" meNasks to join your crew{CBM-S}do you{SHIFT-@}"
+ 3440 t$=t$+" sign them up{CBM-B} turn them away{CBM-B}":x=6:y=0:gosub8000:ifc<>5then3500
+ 3445 gosub3980
+ 3500 vv=vvor2:gosub2250:zz=5+int(rnd(0)*10)
+ 3505 a=cty+cln*int(rnd(0)*(nc+1)):if(peek(a)and128)and(zz<>5)then3500
+ 3506 ifpeek(a)and128then3550
+ 3507 gosub2950:f$="travel":rd=13:gosub8095
+ 3510 t$="a traveller froM"+c$+" offers tOsell you informatioNfor"+str$(zz)
+ 3515 t$=t$+"0 gold pieces{CBM-S}do you agree{CBM-B} yeS nO":x=10:y=13:gosub8000
+ 3520 ifc<>5then3550
+ 3525 gosub3990:ifzz<0then3550
+ 3530 pokea,peek(a)or128:gosub2140:gosub2950:gosub2980:t$="travellers"
+ 3540 cx=cp:cp=a:cc=(cp-cty)/cln:gosub3610:cp=cx:a=cp:cc=(cp-cty)/cln:gosub2950
+ 3550 ifpeek(tr)=31orrnd(0)>.2then3600
+ 3565 f$="mapper":rd=13:gosub8098:ff=4:x=1:y=3:gosub8590:ifc<>5then3600
+ 3570 zz=50:gosub3990:ifzz<0then3600
+ 3580 a=tr:gosub3590:goto3600
+ 3590 f$="treas":gosub12900:gosub5950:v=21:zv=a:gosub7:v=22:zv=nc:gosub7
+ 3595 gosub12950:goto2300
+ 3600 z=tv:tv=day+yr*360:iftv-z>30thenf$="tavern news":rr=2:gosub7010:ax=1
+ 3605 t$="patrons":gosub3610
+ 3606 ifax=0thent$="nothing happenSat the tavern{CBM-S}":x=8:y=20:gosub8000
+ 3607 goto3300
+ 3610 a$="{CBM-B} no inquirY":a=cp:gosub2950:k=0:fori=4to7:a=tr+24+8*i
+ 3612 ifpeek(a)=0then3620
+ 3613 z=0:forj=3to7:z=z-((peek(a+j)and63)=cc):nextj:ifz=0then3620
+ 3615 z=peek(a+1):gosub2290:a$=a$+" "+co$+"{CBM-B}":t(k)=i:k=k+1
+ 3620 nexti:ifk=0thenreturn
+ 3625 t$="the "+t$::ff=8:gosub8610:t$=t$+a$:a$=t$
+ 3630 x=10:y=9:gosub8000:ifc<7thenreturn
+ 3640 c=t(c-7):aa=tr+24+c*8:z=peek(aa+1):gosub2290
+ 3650 j=0:fori=7to3step-1:if(peek(aa+i)and63)=ccthenzz=peek(aa+i-1)and63:j=i
+ 3655 nexti:ifj>3thena=cty+cln*zz:gosub2950
+ 3658 ifjthenpokeaa+j,cc+128:c1=9:c2=(c-4)*64
+ 3665 ifj>3thent$=co$+" lefTfor "+c$+"{CBM-T}a few months ago{CBM-S}":c2=c2+zz:gosub7900
+ 3670 ifj=3thent$=co$+" iSnow in "+c$+"{CBM-K}":c2=c2+cc:gosub7900
+ 3690 x=2+c:y=14-c:gosub8000:t$=a$:ifk>1then3630
+ 3695 a$="":return
+ 3710 co$="informer":ifpeek(cp+11)and64thenco$="wife"
+ 3715 gosub3390:ff=46:x=1:y=1:gosub8590
+ 3720 gosub4270:gosub4275:goto3300
+ 3800 iffnex(cp+9)*fnex(prs+4)>-rnd(0)*50then3200
+ 3810 ff=2:x=6:y=10:gosub8590:f$="street":t$="guard"
+ 3820 dz=1:gosub8290:goto2999
+ 3900 t$="divide plunder":gosub3970:ifc<>3then3300
+ 3901 gosub3910:goto3300:rem distribute booty
+ 3910 aa=fndp(pty+7):zz=int(aa/me*.8+.5):z=int(sqr(zz)/2.3):ifz>3thenz=3
+ 3912 pokeprs+4,((sqr(zz)+fnex(prs+4)+1)/2)and255
+ 3915 gosub8441:co$=f$:ff=10:x=2:y=0:gosub8595
+ 3925 gosub8445:zz=2*df+2:co$="as captain ("+f$:x=4:y=8:ff=11:gosub8600
+ 3926 zz=int(aa*.05*(1+df)):t$=t$+str$(zz*10)+" gold pcs{CBM-S}":gosub8005:gosub3995
+ 3931 gosub3960:ff=9:gosub8600:t$=t$+"{CBM-S}":df=df+1:gosub8445:df=df-1
+ 3932 ifdf<3thent$=t$+" advance to "+f$+" level{CBM-S}"
+ 3935 gosub8000:ifc=8thendf=df-(df<4):pokeprs-3,df:v=73:zv=df:gosub7
+ 3936 ifc=7thent$="end the game":gosub3970:ifc=3then21000
+ 3937 ff=28:x=1:y=1:gosub8595
+ 3938 pokeprs+7,240:xm=0:t$="":forj=0to3:zz=26:gosub9000:nextj:aa=fndp(pty+7)
+ 3940 ifaa=0thenz=fndp(prs+2):zz=-.1*z:gosub3995:aa=zz
+ 3942 pokepty+7,fnlb(aa/10):pokepty+8,aa/10/kp:z=peek(pty+20)and7:pokept+14,z*2+2
+ 3945 pokepty+20,z:pokepty+5,z*2+6:fori=10to13:pokepty+i,0:nexti:pokepty+9,15
+ 3946 pokepty+15,1:zz=16+fnex(prs+4)-me:gosub3980:pokeprs+7,0:vv=0
+ 3950 return
+ 3960 x=6:y=13:ifpeek(prs+18)and1thenff=14:gosub8590:goto21000
+ 3961 gosub8435:ifz=4thenff=60:gosub8590:goto21000
+ 3962 return
+ 3970 t$="are you surEyou want tO"+t$+"{CBM-B} yeS nO":x=10:y=17:gosub8000:return
+ 3975 gosub3980:zz=-zz/(me-zz)*fndp(pty+7):gosub3990:return
+ 3980 me=fndp(pty+3)+int(zz):pokepty+3,fnlb(me):pokepty+4,me/kp
+ 3981 ifme=0thenzz=1:goto3980
+ 3982 return
+ 3990 zz=fndp(pty+7)-zz:ifzz<0thent$="not enough gold{CBM-S}":gosub7999:return
+ 3992 pokepty+7,fnlb(zz):pokepty+8,zz/kp:return
+ 3995 zz=fndp(prs+2)+zz:pokeprs+2,fnlb(zz):pokeprs+3,zz/kp:return
+ 4000 v=0:z=nn:gosub2195:ifdd>12thenf$="unknown "
+ 4015 t$="'sail ho!{CBM-M}the lookout reports Asail on the horizon{CBM-S}":x=2:y=14
+ 4020 ifdf<2thent$=t$+"'we&re in "+f$+"waters{CBM-M}the master reminds{CBM-S}"
+ 4025 t$=t$+"shall we{CBM-B} investigatE continue voyagE":gosub8000:ifcand1thenreturn
+ 4030 zv=int(rnd(0)*(me/50+wa/6-fnex(cp+9))/3):ifzv>4thenzv=4
+ 4040 sa=dta+7*(zv+5*peek(cp+3))+kp
+ 4041 if(rnd(0)<.4)or(dd>12)thensa=dta+7*int(rnd(0)*20)+kp
+ 4042 ifcc=peek(prs-1)andrnd(0)>wa/24thensa=dta+7*20+kp
+ 4049 zz=5:gosub4300
+ 4060 zz=peek(sa):gosub4290:gosub2197
+ 4070 t$="she looks like A"+f$+"captain{CBM-S}shall we{CBM-B} investigatE sail awaY"
+ 4080 x=1:y=16:gosub8000:nn=peek(sa+1)
+ 4085 ht=0:ifpeek(sa+4)<6orfnex(prs+8+nn)>=0then4100
+ 4090 z=int((nn+rnd(0))*32):ifnn=4thenz=int((peek(cp+3)+rnd(0))*32)
+ 4091 ifz=0then4090
+ 4092 gosub2290:dz=int((zand7)/3):ht=z:z=dz*20+1:gosub8421
+ 4093 t$="'arrrgh!; it&s the "+f$+"{CBM-T}pirate":ifnn<>4thent$=t$+"-hunter"
+ 4094 t$=t$+": "+co$+"!{CBM-T}he&s chasing us, captain!'{CBM-T}"
+ 4095 x=2:y=2:gosub8005:c=3
+ 4100 z=nn:gosub2195:ifc<>3thenreturn
+ 4105 zz=nn:gosub4310
+ 4110 t$="she&s flying "+f$+"{CBM-T}colors, captain{CBM-S}shall we{CBM-B} close for battlE"
+ 4120 t$=t$+" hail for newS sail awaY":x=2:y=14:gosub8000
+ 4125 if(rnd(0)<(df/3))andhtthenv=1:return
+ 4130 ifc=5thenreturn
+ 4131 ifc=4andfnex(prs+nn+8)>-4thenf$="ship&s news":rr=2:tv=day+yr*360:goto7010
+ 4135 pokecp+9,(fnex(cp+9)+(dd<7))and255:v=1:return
+ 4140 t$="captain":f$="deck":t(0)=fngs(59):y(1)=7.9-fngs(9)/16:ifhtthent$=co$
+ 4145 z=peek(sa+4):y(0)=me-xm:t(1)=z-int(ln/16):dz=(7andht)/3
+ 4150 gosub8300:zz=xm:gosub3980:ifv=0thenwa=wa+16:c=-4:gosub8400:gosub8400:return
+ 4152 c1=4:gosub7880
+ 4155 xx=1:x=-11:y=9:f$="plunder":rd=12:gosub8099
+ 4156 sg=1:zz=peek(sa):gosub4290:t$="%captain, we&ve captureD"
+ 4157 ifhtthenz=ht:gosub2290:t$=t$+co$+" anD"
+ 4158 t$=t$+"a"+str$(cx)+" gun "+f$+"{blk}of"+str$(zz*20+20)+" tons. we ":gosub8580
+ 4159 t$=t$+"havEspace for"+str$(z)+" tons in thEhold. shall we keep her?{CBM-M}"
+ 4160 t$=t$+" yes, send a prize creW no, plunder and sink heR":x=1:y=1:gosub8000
+ 4161 c=c+(ht<>0):ifc=6orpeek(pty+15)>7then4200
+ 4164 z=peek(pty+15):pokepty+15,z+1:pokepty+20+z,peek(sa)+8*int(ln/16)
+ 4165 pokept+14,peek(pt+14)+peek(sa)*2+2
+ 4170 ifz*8>methenzz=z*8-me:gosub3980
+ 4200 c=4:gosub8400:t$="crewmen"
+ 4210 ifnn<>4thenc=-nn-8:gosub8400:ifdd<(5+peek(sa))thengosub9900:gosub3610
+ 4212 ifht=0then4219
+ 4213 z=ht:gosub2290:x=8:y=4:ff=1:c=0:if(nnand3)=0thengosub8590
+ 4214 ifc=6thengosub4270:goto4219
+ 4215 ifc=7thengosub4275:goto4219
+ 4217 fori=88to95:ifpeek(tr+i)=0thenpoketr+i,ht+(nnand4)*32:i=99
+ 4218 nexti
+ 4219 t(0)=int((peek(cp+8)+64)/16*peek(sa+5)*rnd(0)):t(1)=(1+rnd(0))*peek(sa+2)
+ 4220 fori=2to4:t(i)=peek(sa+6)*rnd(0)^2:p(i)=0:nexti:t$="leave behind":t(4)=cx/2
+ 4225 pokepty+17,(peek(pty+17)+1-(peek(sa+4)>5))and255:p(0)=0:p(1)=0
+ 4230 gosub8210:zz=int(peek(sa+2)*(fnex(prs+4)+5)*rnd(0)/10):ifzz<2then4265
+ 4240 t$="captain"+str$(zz)+" sailorSwish to join our crew{CBM-S} take theM leave theM"
+ 4250 x=2:y=16:gosub8000
+ 4260 ifc=2thengosub3980:gosub8500
+ 4265 return
+ 4270 t$="the treasure fleeT":a=1:c$="spain":goto4280
+ 4275 t$="the silver traiN":a=2:c$="peru"
+ 4280 z=fnex(prs-a):y=10+a:ifz>=0thenc1=19+a:c2=z:gosub7900:a=cty+z*cln:gosub2950
+ 4285 t$=t$+"is in "+c$+"{CBM-S}":x=3:gosub8000:return
+ 4290 f$="pinnace     sloop       barque      cargo fluyt merchantman frigate   "
+ 4292 f$=f$+"  war galleon galleon     fort":z=(zzand7)*12:f$=mid$(f$,z+1,12)
+ 4293 if(zzand7)=5andsn<4thenf$="fast galleon"
+ 4294 ifzzand248thenf$=f$+" (damgd)"
+ 4296 return
+ 4300 x=peek(sa):ifx=5andsn<4thenx=8
+ 4305 f$="ship"+str$(x):x=-19*sgn(zz):y=1:c1=14:c2=9:gosub8100
+ 4310 t$="326501":pokea0,9:pokea1,(asc(mid$(t$,abs(zz)+1))and7)+8:syswn+18:return
+ 4900 v=0:zz=int(rnd(0)*peek(pty+15)):goto4910
+ 4905 v=1
+ 4910 ifpeek(pty+15)=1then4950
+ 4915 z=(peek(pty+20+zz)and7)*2+2:cx=peek(pty+14):pokepty+14,cx-z:cx=(cx-z)/cx
+ 4920 fori=zzto10:pokepty+20+i,peek(pty+21+i):nexti:pokepty+15,peek(pty+15)-1
+ 4925 ifvthen4949
+ 4930 zz=fndp(pty+7)*(1-cx):gosub3990
+ 4940 fori=9to12:pokepty+i,int(cx*peek(pty+i)):nexti
+ 4945 pokepty+5,int(cx*peek(pty+5))
+ 4949 return
+ 4950 gosub12500:x=3:y=9:c1=9:c2=13:f$="island":gosub8100:x=1:y=1:ff=30:gosub8595
+ 4955 f$="island":gosub12900:gosub5950:gosub12950:sl=0:gosub4990
+ 4960 x=1:y=14:ff=31:gosub8590:return
+ 4990 z=fre(0):gosub3960
+ 4992 pokeprs+7,240:xm=0:t$="":forj=0to6+fnex(prs+4)/2:zz=27:gosub9000:nextj:aa=0
+ 4995 gosub3940:f=0:t=(tr+24)/kp:l=.4:gosub12:gosub8435:x=7:y=8:ifz=4then3960
+ 4996 ff=56+z:gosub8590:df=df-sgn(dfand3):pokeprs-3,df:gosub8445:co$=f$:return
+ 5000 z=-1:gosub8700:gosub8500:f$="":gosub12900:ifsl<2thensk=2:gosub5950
+ 5010 ifslthenf=142.5:t=va/kp:l=.5:gosub10:v=18:zv=1:gosub7:goto5090
+ 5040 v=23:zv=cp:gosub7:v=22:zv=nc:gosub7:v=19:zv=0:gosub7
+ 5090 gosub12500:pokes+12,132:pokes+13,74:ifll=0thenpokes+11,129
+ 5095 f=15:t=216:l=4:gosub12:f=4:t=232:gosub10:ifwa>15thenpokepr+60+peek(cp+3),cc
+ 5096 f=6:t=142.5:l=.5:gosub10:v=79:zv=t*kp:gosub7
+ 5098 sl=2:zv=int(3.5-abs(mn-8)/3):v=12:gosub7:v=4:zv=wa:gosub7:pokes+18,128
+ 5100 z=186.5:gosub12970
+ 5104 pokes+13,128:ln=peek(a0):gosub12500:gosub5990
+ 5105 ll=fngs(5):pd=fngs(38):f=va/kp:t=142.5:l=.5:gosub10
+ 5107 cp=fngs(23):wa=fngs(4):dd=fngs(26):cc=(cp-cty)/cln:zz=int(fngs(20)/32)+1
+ 5110 gosub9000:nn=peek(cp+3):onlngoto5450,5300,5350,5365,5000
+ 5115 gosub1000:goto5000
+ 5300 v=11:gosub9:t$="captain, we have onlY"+str$(zv)+" day&s food left{CBM-S}"
+ 5310 x=8:y=4:ifzvthen:gosub8000:goto5000
+ 5320 ff=38:gosub8590:pokepty+9,5:zz=-me/3:gosub3975:goto5000
+ 5350 zz=peek(prs+128):ff=37:x=8:y=5:gosub8590:v=0:gosub4910
+ 5355 goto5000
+ 5365 ll=llor2:return
+ 5450 gosub4000:ft=0:ifv=0thenwa=wa+16:goto5000
+ 5455 gosub5460:goto5000
+ 5460 ln=int(rnd(0)*3):ifpeek(pty+15)=1then5500
+ 5465 z=me-peek(pty+15)*8+8:zz=peek(pty+5):ifzz>z/4thenzz=int(z/4)
+ 5470 t$="we have"+str$(z)+" men and"+str$(zz)+"{CBM-T}cannon ready for battle{CBM-S}"
+ 5472 t$=t$+"winds are "+mid$(" lightmediumstrong",ln*6+1,6)+".  whicH"
+ 5475 t$=t$+"ship will you command{CBM-B} ":gosub5920:x=3:y=3:gosub8000
+ 5480 z=peek(pty+20):pokepty+20,peek(pty+16+c):pokepty+16+c,z
+ 5500 print"{cyn}{clr}":vv=0:xm=fngs(8):ifftthengosub6700
+ 5510 f$="ships":gosub12900:v=8:zv=xm:gosub7:v=34:zv=ft:gosub7:v=13:zv=ln:gosub7
+ 5540 v=35:zv=cp:gosub7:v=41:zv=031:gosub7:v=76:zv=sa:gosub7:sk=3
+ 5555 gosub5950:dz=0:poke214,20:print:zz=peek(pty+20)and7:gosub4290:print"{blk} "f$"   ";
+ 5560 zz=peek(sa):gosub4290:poke211,20:poke53270,8+16*ft:ifftthenf$="{wht}fort"
+ 5565 print"{brn}"f$:print"{wht}    guns,     men","   guns,     men"
+ 5570 print" no damage","no damage":print" guns loaded",:ifft=0thenprint"battle sails";
+ 5600 gosub12950
+ 5605 k=0:me=fndp(pty+3)
+ 5610 onpeek(a0)goto5620,5630,5640,5650,5660,5670,5680,5690,5700,5710,5720,5730
+ 5620 t$="{blk}reloading{wht}":goto5635
+ 5630 t$="guns loaded"
+ 5635 poke214,23:print:print"                   {up}":print" "t$;:goto5600
+ 5640 goto5600
+ 5650 t$=mid$(" lightmediumstrong",fngs(13)*6+1,6)+" winds from the "
+ 5651 z=int(fngs(8)/16)*3+1
+ 5652 t$=t$+mid$("s  sswsw wsww  wnwnw nnwn  nnene enee  esese sse",z,3)
+ 5656 poke214,19:print:print"{blu}------"t$"------{wht}";:goto5600
+ 5660 gosub5900:gosub12500:co$="the enemy captain":ifhtthenz=ht:gosub2290
+ 5662 ifft=0thenf$="boarding":gosub8097:x=3:y=1:ff=36:gosub8590:gosub4140
+ 5665 k=1:return
+ 5670 z=-(fngs(36)=2orft):ff=21+z:zz=fnex(prs+128):ifzz=-1then5675
+ 5673 a=peek(pty+20+zz)and7:v=0:gosub4910:zz=a:gosub4290
+ 5674 gosub2197:co$=f$:ff=40
+ 5675 gosub12500
+ 5676 c1=6:gosub5900:x=1:y=14:gosub8590:ifkandft=0thengosub4155:c1=4
+ 5677 ifdd<12andk=0thenwa=wa+24-2*dd
+ 5678 ifft=0thengosub7880
+ 5679 return
+ 5680 poke214,22:print:v=9:gosub5685
+ 5681 f$="sinking":xx=1:x=-19:y=1:c1=14:c2=9:ifz>=4thengosub8100:goto5688
+ 5682 poke211,19:v=57:gosub5685
+ 5683 ifz<4then5600
+ 5684 gosub8100:ff=24:gosub9900:c1=5:goto5676
+ 5685 z=int(fngs(v)/16)-1:ifz<0thenreturn
+ 5686 t$="sail damage lost a mast hull leaking":t$=mid$(t$,z*12+1,12):print" "t$;
+ 5687 return
+ 5688 gosub5900:ff=23:x=1:y=14:gosub8590:zz=0:v=0:gosub4910
+ 5689 c=22:gosub8400:return
+ 5690 ff=25:ifftthenff=42:goto5675
+ 5691 goto5675
+ 5700 gosub12500:k=1:xx=1:zz=-5:gosub4300:ff=26:goto5676
+ 5710 t$="{blu}raising sail{wht}":iffngs(10)=1thent$="{blu}lowering sail{wht}"
+ 5715 goto5635
+ 5720 v=10:gosub5739:goto5635
+ 5730 v=63:gosub5739:poke214,23:print:print,,t$;:goto5600
+ 5739 t$="battle sails":iffngs(v)=1thent$="full sails  ":return
+ 5900 pokevb+19,0:cx=(fngs(58)+1)and254:ln=fngs(57):xm=fngs(32):return
+ 5920 fori=1topeek(pty+15):zz=peek(pty+19+i):gosub4290:t$=t$+f$+"{CBM-T} ":nexti:return
+ 5950 sg=-1:gosub8700:pokevb+15,0:sl=sgn(sl):poke198,0
+ 5960 f=0:t=(prs+128)/kp:l=.5:gosub12
+ 5970 v=73:zv=df+(sk=peek(prs+23)anddf>0)+dz:ifzv>4thenzv=4
+ 5980 gosub7:sk=0:pokes+15,99:pokes+18,128:poke198,0:return
+ 5990 poke816,165:poke817,244:poke818,237:poke819,245::f=232:t=4:l=4:goto10
+ 6000 v=1
+ 6010 f$="":gosub12900:c1=248:c2=192:gosub9190:c1=252:c2=196:gosub9190
+ 6020 v=4:zv=y(0):gosub7:v=56:zv=t(0):gosub7:z=(y(0)*y(1)+t(0)*t(1))/31
+ 6030 v=5:zv=int(y(0)*y(1)/z+.5)+8:gosub7:v=57:zv=47-zv:gosub7
+ 6050 sk=1:gosub5950:dz=0:v=3:zv=c-2:gosub7:v=23:zv=dl:gosub7
+ 6100 z=195.75:gosub12970
+ 6105 onpeek(a0)goto6110,6110,6110,6130
+ 6110 y(0)=fngs(4)
+ 6120 v=2-peek(a0):gosub9190:c1=248:c2=192:gosub9190:return
+ 6130 poke214,20:print:print"{rght}{rght}morale:",:zv=int(fngs(57)/8)
+ 6140 gosub6190:zv=int(fngs(5)/8):gosub6190
+ 6150 goto 6100
+ 6190 printmid$("panic shakenangry firm  strongwild! wild!!",zv*6+1,6),:return
+ 6500 f$="sunsight":x=-10:y=6:c1=0:c2=15:gosub8100:f$="sight":gosub12900
+ 6510 poke214,21:print:print,"    latitude: ?? n":gosub5950
+ 6520 ifdf=0thenprint"{down}   dead reckoning longitude:"int(96.7-peek(pty+1)*.24)"w";
+ 6600 gosub12950:zz=1:gosub9000:return
+ 6700 f$="scape":gosub12900:gosub5950:v=23:zv=cp:gosub7:gosub12500:f=15:t=216:l=4
+ 6710 gosub12:f=4:t=232:l=4:gosub10:f=(dta+410)/kp:t=(prs+128)/kp:l=.1:gosub10
+ 6712 v=33:zv=ft:gosub7:gosub12950:gosub5990:ifftthenreturn
+ 6715 poke214,21:print:print"{wht} pirate party "," defenders "
+ 6718 t$="{wht}     men     muskets":printt$;t$;
+ 6720 t$="         ter:{gry3}TTT {wht}":printt$,t$;
+ 6725 f$="battle":gosub12900:v=23:zv=cp:gosub7:dz=0
+ 6730 gosub12950:zz=0:gosub3980
+ 6740 onpeek(a0)goto6750,6760,6770,6755
+ 6750 z=6
+ 6752 zv=int(fngs(z)/16):poke214,22:print:poke211,z*1.3+34:gosub6190:goto6730
+ 6755 z=21:goto6752
+ 6760 v=1
+ 6765 wa=wa+fngs(7)/99:gosub12500:ifv=0thenx=3:y=3:ff=62:gosub8590
+ 6767 return
+ 6770 v=0:goto6765
+ 7000 f$="ship&s log":rr=1
+ 7010 x=0:y=0:dx=39:dy=24:gosub30:print"{home}","{down}*** "f$" ***"
+ 7020 k=peek(lg)-21:ifk<0thenk=-1:goto7060
+ 7030 a=lg+k*4+1:z=fndp(a):i=peek(a+2):j=1-2*((i>9)and(i<20))
+ 7031 if((jandrr)=0)or((z>tvandj=3))then7060
+ 7035 z=z-360*int(z/360):zz=int(z/30)
+ 7040 gosub1099:print"{rght}{blu}"t$;
+ 7045 z=(z-zz*30+1):printz;:poke211,8:print"{left}{blk}-";
+ 7048 z=peek(a+2):onint((z-1)/10)goto7052,7053
+ 7050 onzgosub7110,7120,7130,7140,7150,7160,7162,7164,7170,7180:goto7060
+ 7052 onz-10gosub7190,7200,7210,7220,7230,7240,7255,7250,7260,7270:goto7060
+ 7053 onz-20gosub7280,7300,7310,7320,7330,7340:goto7060
+ 7060 k=k+1:ifk<peek(lg)then7030
+ 7070 print,"... the end ...";:gosub2990
+ 7090 return
+ 7110 print"visited";
+ 7115 a=cty+(peek(a+3)and63)*cln:gosub2950:print" "c$".":return
+ 7120 z=int(peek(a+3)/64):gosub2195
+ 7125 print"titled as a "co$;f$"{blk}"rk$(peek(a+3)and63)".":return
+ 7130 print"plundered";:goto7115
+ 7140 print"captured a ";
+ 7145 z=int(peek(a+3)/16):gosub2195:printco$;f$;"{blk}";
+ 7146 zz=peek(a+3)and15:gosub4290:print"{blk}"f$:return
+ 7150 print"sank a ";:goto7145
+ 7160 print"engaged a ";:goto7145
+ 7164 print"found buried treasure!":return
+ 7170 z=peek(tr+24+4*8+int(peek(a+3)/64)*8+1):gosub2290
+ 7171 print"{left}{left}{left}{left}{left}{left}{left} "co$" in";:goto7115
+ 7180 zz=peek(a+3):gosub7245:print"offers pirate amnesty!":return
+ 7190 print"indians attack";:goto7115
+ 7200 print"new gold mine at";:goto7115
+ 7210 print"malaria strikes";:goto7115
+ 7220 print"new governor in";:goto7115
+ 7230 print"pirates plunder";:goto7115
+ 7240 zz=peek(a+3):gosub7245:print"at war with ";:gosub7245:print"{left}.":return
+ 7245 f$=mid$("{cyn}spain  {red}england{blu}france {grn}holland{blk}pirate ",(zzand3)*8+1,8)
+ 7246 gosub2197
+ 7247 printf$"{blk}";:zz=int(zz/4):return
+ 7250 zz=peek(a+3):gosub7245:print"allies with ";:gosub7245:print"{left}.":return
+ 7255 zz=peek(a+3):gosub7245:print"and ";:gosub7245:print"make peace.":return
+ 7260 zz=peek(peek(a+3)*cln+cty+3):gosub7245:print"captures";:goto7115
+ 7270 print"treasure fleet in";:goto7115
+ 7280 print"silver train in";:goto7115
+ 7320 print"captured the treasure fleet":return
+ 7330 print"captured the silver train":return
+ 7340 z=peek(a+3):gosub8430:print"rescued my ";t$:return
+ 7880 c2=peek(sa)+peek(sa+1)*16:goto7900
+ 7890 c2=(cp-cty)/cln
+ 7900 aa=peek(lg):ifaa>=62thent=lg/kp:f=t+.5:l=.5:gosub10:aa=aa-32
+ 7910 pokelg,aa+1:aa=lg+1+aa*4:pokeaa+2,c1:pokeaa+3,c2
+ 7920 c1=day+360*yr:pokeaa,fnlb(c1):pokeaa+1,c1/kp:return
+ 7999 x=20-int(len(t$)/2):y=20:gosub8005:fori=0to200:nexti:return
+ 8000 c=0:goto8009
+ 8005 c=1
+ 8009 ifsg>=0thengosub8700
+ 8010 ax=prs+131:pokeax-1,0:pokevb+15,1:t$="{CBM-T}"+t$:syswn+12:xl=peek(ax-2):dx=xl+2
+ 8015 n=peek(ax-3):dy=n+1:co=2+6*rnd(0):ifabs(aa-tr)<=16thenco=7
+ 8016 if(dx+x)>39thendx=39-x
+ 8017 if(dy+y)>24thendy=24-y
+ 8020 gosub30:pokesp,176:z=ax+peek(ax-1)
+ 8030 poke214,y:print"{down}";:fori=ax+ntoax+1step-1:poke211,x+1:ifz=ithenprint"{cyn}";
+ 8040 printmid$(t$,peek(i)+2,peek(i-1)-peek(i))
+ 8045 nexti:print"{blk}";:ifcthenreturn
+ 8050 ifpeek(vb+18)orpeek(vb+14)then8050
+ 8055 z=n-z+ax:pokevb+16,x*4+7:pokevb+17,(y+z)*8+60:poke53269,1:ifz>=nthen2990
+ 8060 c=int(peek(vb+17)/8)-7-y:ifc<zthenc=z
+ 8070 ifc>=nthenc=n-1
+ 8071 l=peek(216*kp+(y+c)*40+x+42)and15:pokea0,x+1:pokea1,y+c+1:pokea2,0:syswn+15
+ 8072 gosub8090:ifpeek(vb+14)thenpokevb+16,0:pokea2,6*sgn(l):syswn+15:return
+ 8074 pokea2,l:syswn+15:gosub8090:goto8060
+ 8080 pokevb+16,0:poke53269,0:return
+ 8090 fori=0to20:ifpeek(vb+14)theni=999
+ 8091 nexti:return
+ 8095 x=1:y=1:goto8099
+ 8096 x=17:y=1:goto8099
+ 8097 x=1:y=9:goto8099
+ 8098 x=17:y=9
+ 8099 c1=0:c2=10:xx=xx+1
+ 8100 f=236:ifx>0andrnd(0)>pxthenrd=0:return
+ 8110 t=161:l=2:gosub10:f$=f$+".win":bf=232*kp:gosub17800:ifxxthengosub12500:xx=0
+ 8115 z=abs(x)+y*40+41:rr=216*kp+z:z=peek(648)*kp+z
+ 8120 pokea0,abs(x):pokea1,y:pokea2,19-18*(x=-1):pokea3,15:pokea4,0:syswn
+ 8130 poke53282,c1:poke53283,c2:f=232:t=228:l=6:gosub10:f=161:t=236:l=2:gosub10
+ 8140 pokea0,fnlb(z):pokea1,z/kp:pokea2,fnlb(rr):pokea3,rr/kp:syswn+9
+ 8145 ifrdthenpokea0,rd:pokea1,rnd(0)*6+10:syswn+18:rd=0
+ 8150 ifx=-1thenx=0:z=z+18:rr=rr+18:goto8140
+ 8160 px=.7-df*.15:return
+ 8180 gosub9900:gosub9900:sg=2:pokecp,peek(cp)or128
+ 8181 xx=1:x=-11:y=9:f$="happy":rd=14:gosub8099:x=2:y=1:ff=52:gosub8590
+ 8182 x=12:y=4:z=int((wa-12)/15):ifz>2thenz=2
+ 8183 ifz>-1thenco$=mid$("somemuchmost",z*4+1,4):ff=41:gosub8590
+ 8190 gosub2250:fori=1to4:t(i)=int(rnd(0)*peek(cp+8))-50*(i=0):p(i)=0:nexti:f$=c$
+ 8191 p(0)=0:t(0)=int(peek(cp+7)*1500/(15+wa)):fork=1to2:ifcc<>peek(pr-k)then8194
+ 8192 pokepr-k,255:c1=23+k:gosub7900:x=8:y=10:ff=49+k:gosub8590
+ 8193 t(0)=t(0)+20*peek(dta+kp+20*7+5):pokeprs+26+k,16
+ 8194 nextk:pokecp+7,fnrg(peek(cp+7)-t(0)/50):pokecp+8,fnrg(peek(cp+8)-20)
+ 8195 c=-nn-8:gosub8400:ift(0)>99thengosub8400:gosub8400:c=4:gosub8400:gosub8400
+ 8196 pokecp+9,(peek(cp+9)-3)and255:ifme<peek(cp+6)*10*(1+rnd(0))then8199
+ 8197 x=3:y=3:ff=39:gosub8590:pokecp+3,c-5:pokecp+9,2:pokecp+11,rnd(0)*16
+ 8198 ifc-5<>nnthenpokepr+3+c,(peek(pr+3+c)+3)and255:c=-nn-8:gosub8400:gosub8400
+ 8199 t(4)=6*peek(cp+4):c1=3:gosub7890:t$="town":goto8210
+ 8200 gosub12500
+ 8210 zz=(p(0)<>0ort(0)=0):pokesp,176:x=1:y=-zz:dx=37:dy=11+zz:co=4*p(0):gosub30
+ 8212 f$="":gosub12900:poke53269,1
+ 8220 poke214,1:print:print,na$," "t$,:co$="{wht}":ifp(0)thenprint" price":co$="{cyn}"
+ 8225 poke214,8:print:print"{rght}{rght}  use joystick to transfer cargo,":pokevb+17,107
+ 8226 print"{rght}{rght}  press trigger when done."
+ 8227 ifzz=0thenprint"{home}{down}{pur}",t(0)"{left}0 gold pcs. plundered!":zz=-t(0):gosub3990:t(0)=0
+ 8230 poke214,2:print:print"{rght}{rght}{pur}gold","{left}{left}      "p$,co$"{left}     "p$:t$="     tons"
+ 8235 print"{rght}{rght}{grn}food",t$,t$,co$;p(1)p$
+ 8236 print"{rght}{rght}{blu}goods",t$,t$,co$;p(2)p$
+ 8240 print"{rght}{rght}{cyn}"x$,t$,t$,co$;p(3)p$
+ 8245 print"{rght}{rght}{blk}cannon",,,co$;p(4)p$
+ 8246 print"{rght}{rght}{red}space in hold:{blk}";t$:ifcx<0thencx=cx+kk
+ 8250 gosub5950:v=7:zv=t(0):gosub7
+ 8255 fori=1to4:v=11+i:zv=t(i):gosub7:v=15+i:zv=p(i):gosub7
+ 8260 nexti:v=26:zv=va:gosub7:pokevb+15,1
+ 8270 z=181.5:gosub12970:poke53269,0:return
+ 8290 y(0)=1:y(1)=9:t(0)=1:t(1)=9:dl=1:goto8305
+ 8300 dl=0
+ 8305 gosub12500:x=-1:y=2:c1=11:c2=9:gosub8100:f$=t$
+ 8308 x=23:y=17:t$="which weapoNwill you use{CBM-B} rapieR longsworD cutlasS":gosub8000
+ 8310 t$=f$:pokea0,1:pokea1,18:pokea2,30:pokea3,4:pokea4,2:syswn
+ 8315 co$="":f$="":iflen(t$)<12anddl=0thenz=nn:gosub2195
+ 8320 print"{home}{down}",na$" vs. "co$;f$;"{blk}";t$:iflen(t$)>10thent$="enemy"
+ 8330 poke214,18:print:print,t$,na$:print"{rght}{rght}force:","   men","   men"
+ 8350 gosub6000:gosub12500:x=2:y=2
+ 8388 ifv<>1anddlthenff=32:gosub8590:pokeprs+4,255:goto8393
+ 8389 ifv=-1then8395
+ 8392 ifdl=0thenzz=y(0)-me:gosub3980
+ 8393 pokesp,176:return
+ 8395 c=22:gosub8400:x=-2:y=9:xx=1:c1=0:c2=12:f$="prison":gosub8100:x=1:y=1
+ 8396 a=cp:gosub2950:a$=c$:ff=33:ifnn<>peek(cp+3)orcc>ncthenc$="the ship"
+ 8397 gosub8595:f$="island"
+ 8398 ifc$=a$thengosub12900:gosub5950:v=23:zv=cp:gosub7:gosub12950:sl=fngs(3)
+ 8399 c$=a$:gosub4990:ff=3:x=6:y=10:gosub8590:v=0:return
+ 8400 pokeprs+abs(c),(peek(prs+abs(c))+sgn(c))and255
+ 8404 c1=abs(c)-8:a=prs+64+c1*4:ifc1<0orc1>3thenreturn
+ 8406 fori=0to3:pokeprs+8+i,(peek(prs+8+i)+sgn(c)*sgn(fnex(a+i))and255)
+ 8408 nexti:return
+ 8410 pokepty+abs(c),(peek(pty+abs(c))+sgn(c))and255:return
+ 8420 z=int(fnex(prs+4)/4)*10+11:ifz<1thenz=1
+ 8421 ifz>51thenz=51
+ 8422 f$=mid$("cowardly  promising well knownfamous    notorious infamous!",z,10)
+ 8423 gosub2197:return
+ 8430 t$=mid$("sisterfathermotheruncle ",z*6+1,6):return
+ 8435 z=int((yr-peek(prs+19)+peek(prs+22))/(3-(peek(prs+23)=4))):ifz>4thenz=4
+ 8436 t$=mid$("finegoodfairpoorpoor",z*4+1,4):return
+ 8440 z=int(fnex(pty+17)/4)+1:ifz>3thenz=3
+ 8441 ifz<0thenz=0
+ 8442 f$=mid$("angry  unhappypleasedhappy  ",z*7+1,7):return
+ 8445 f$=mid$("apprenticejourneymanadventurerswashbcklr",df*10+1,10):return
+ 8450 y(0)=me:y(1)=y(1)+fnex(pty+17)/2:return
+ 8500 t$="not enough crew{SHIFT-@}one ship lost{CBM-S}":x=10:y=6:iflland1thenreturn
+ 8505 ifpeek(pty+15)*8>methenzz=peek(pty+15)-1:gosub8000:gosub4905:goto8500
+ 8520 gosub8580:ifz>=0thenreturn
+ 8530 gosub12500:t$="too much cargo{CBM-S}":gosub7999
+ 8540 t$="overboard":fori=0to4:t(i)=0:p(i)=0:nexti:gosub8210:goto8500
+ 8580 z=int(peek(pty+5)/2):fori=9to11:z=z+peek(pty+i):nexti
+ 8585 z=peek(pty+14)*10-z:return
+ 8590 gosub8600:t$=t$+"{CBM-S}":gosub8000:return
+ 8595 gosub8600:t$=t$+"{CBM-S}":gosub8005:return
+ 8600 t$=""
+ 8610 rr=peek(53269):poke53269,0:open15,8,15:open5,8,5,"#"
+ 8615 print#15,"b-r:";5;0;int(ff/21)+1;ff-int(ff/21)*21
+ 8620 input#5,f$:iff$="co$"thent$=t$+co$:goto8620
+ 8622 iff$="c$"thent$=t$+c$:goto8620
+ 8625 z=len(f$):iff$="zz"thent$=t$+mid$(str$(zz),2)+" ":goto8620
+ 8626 iff$="zz0"thent$=t$+mid$(str$(zz),2)+"0 ":goto8620
+ 8630 ifst=0thent$=t$+left$(f$,z-1)+chr$(asc(mid$(f$,z))+128):goto8620
+ 8640 t$=t$+f$:close5:close15:poke53269,rr:return
+ 8700 sg=4*kp+abs(sg)*100+2*(sg<0)
+ 8710 pokea0,fnlb(sg):pokea1,sg/kp:pokea3,32
+ 8720 pokes+3,2:pokes+10,2:pokes+17,2:pokea4,9:pokea5,10:sysvb+9:sg=-1:return
+ 9000 cx=day:day=day+zz:ifint(cx/30)=int(day/30)thenreturn
+ 9020 formn=int(cx/30)+1toint(day/30):gosub9100:gosub9180:ifllthen9030
+ 9022 iffnex(pty+17)>-4then9028
+ 9025 x=4:y=4:gosub12500:ff=29:gosub8590:zz=-me/3:gosub3975:dz=1
+ 9026 f$="deck":t$="mutineer":gosub8290:pokeprs+7,(peek(prs+7)-4)and255:goto9030
+ 9028 iffnex(pty+17)<0thengosub12500:ff=27:gosub8590
+ 9030 mt=-1:vv=vv*(lland2)/2:nextmn:ifday>=360thenday=day-360:yr=yr+1
+ 9040 mn=int(day/30):return
+ 9100 zz=mn:gosub1099
+ 9104 t$=t$+str$(1560+sn*20+yr+int(mn/12))+"{CBM-T}"
+ 9106 x=9:y=9:gosub8005:zz=peek(prs+5)/2:gosub3995
+ 9110 f$="":gosub12900:gosub5950:v=19:zv=mn:gosub7:v=22:zv=nc:gosub7
+ 9120 z=183:gosub12970
+ 9130 fori=prs+128toprs+136step2:c1=peek(i):ifc1thenc2=peek(i+1):gosub7900
+ 9140 nexti:return
+ 9180 z=2*sqr(fndp(pty+7)/fndp(pty+3))
+ 9185 pokepty+17,(z-fnex(prs+7)+4-df)and255:return
+ 9190 f=c1:t=232:l=4:gosub10:f=c2:t=c1:gosub10:f=232:t=c2:gosub10:return
+ 9250 aa=tr+24+4*8:ifpeek(aa+24)thenreturn
+ 9270 gosub9300:pokeaa+2,6:z=peek(prs+6):gosub8430:a$=c$:c$=t$
+ 9280 f$="spaniard":gosub3391:x=2:y=2:ff=12:gosub8590
+ 9285 c1=9:c2=zz+(aa-tr-56)*8:gosub7900
+ 9290 a=zz*cln+cty:gosub2950:ff=0:x=1:y=10:gosub8590:c$=a$:return
+ 9300 ifpeek(aa)thenaa=aa+8:goto9300
+ 9310 zz=int(rnd(0)*nc+1):ifpeek(cty+zz*cln+3)then9310
+ 9320 pokeaa,1:pokeaa+3,zz:fori=aa+4toaa+7:pokei,0:nexti
+ 9330 z=rnd(0)*32:pokeaa+1,z:gosub2290:return
+ 9900 pokecp+8,fnrg(peek(cp+8)-10):return
+ 9950 pokecp+8,fnrg(peek(cp+8)+10):return
+ 12000 s=54272:pokes+18,129:sysvb
+ 12040 sx=53248:sy=sx+1:sc=53287:sp=204*kp+1016:return
+ 12500 pokevb+13,0:poke648,204:poke53272,48+8
+ 12510 poke53269,0:poke53271,0:poke53277,0:poke53276,0:poke53270,24:poke53265,27
+ 12515 print"{blk}{clr}";:poke53280,14:poke53281,1:poke53282,0:mo=1
+ 12520 return
+ 12900 f=0:t=va/kp:l=.5:gosub12
+ 12910 iff$=sd$orf$=""thent=(va+160)/kp:l=4-160/kp:gosub12:return
+ 12920 sd$=f$:f$=f$+".sid":bf=173.5*kp
+ 12930 gosub17800:if(st and191)<>0then12930
+ 12940 return
+ 12950 pokea0,128:pokea1,173:sysvar-24:return
+ 12970 pokea0,fnlb(z*kp):pokea1,z:sysvar-24:return
+ 17700 poke53269,0:sysvb+3:gosub41:open15,8,15,"i":print#15,"s0:"+f$:close15
+ 17705 gosub19520:poke251,fnlb(bf):poke252,bf/kp:pokea1,fnlb(bf+ln)
+ 17710 pokea2,(bf+ln)/kp:pokea0,251:pokea4,216:pokea5,255:syske
+ 17720 gosub40:sysvb:return
+ 17800 rr=0
+ 17805 sysvb+3:gosub41:gosub19520
+ 17806 rr=peek(53269):poke53269,0:pokea1,fnlb(bf):pokea2,bf/kp
+ 17810 pokea0,0:pokea4,213:pokea5,255:syske:poke53269,rr:gosub40:sysvb:return
+ 17900 rr=255:goto17805
+ 19000 deffndp(x)=peek(x)+256*peek(x+1):deffngs(x)=peek(va+2*x)+kp*peek(va+2*x+1)
+ 19001 deffnlb(x)=(x-32768)and255:deffnex(x)=peek(x)+256*(peek(x)>127)
+ 19002 deffnrg(x)=-x*(x>=0andx<256)-255*(x>255)
+ 19003 a0=165:a1=a0+1:a2=a1+1:a3=a2+1:a4=a3+1:a5=a4+1:a6=a5+1:kp=256:kk=kp*kp
+ 19004 k=149*kp:sb=k+41:mvb=k+70:ke=k+142:s64k=k+29:m64k=k+20
+ 19010 var=159*kp:return
+ 19520 fori=0tolen(f$)-1:poke830+i,asc(mid$(f$,i+1,1)):nexti
+ 19526 pokea0,0:pokea1,8:pokea2,1:pokea4,186:pokea5,255:syske
+ 19528 pokea0,len(f$):pokea1,62:pokea2,3:pokea4,189:pokea5,255:syske:return
+ 21000 gosub12500:t$="game disk side 1":gosub2490:ifa$<>"1"then21000
+ 21900 pokeprs+21,yr:print"{gry1}{clr}{down}{down}{wht}load "chr$(34)"life"chr$(34)",8,1{down}{down}{down}{down}{down}run"
+ 21910 sysvb+3:print,"{blk}one moment please...{home}{wht}";
+ 21920 gosub41:poke631,13:poke632,13:poke198,3:new
