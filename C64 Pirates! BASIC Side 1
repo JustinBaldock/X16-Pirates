@@ -1,7 +1,7 @@
     0 rem pirates of the spanish main!!
     1 ifpeek(38181)<>133thenload"64ksupport",8,1
-    4 poke52,142:poke56,142:clr:t$=""
-    5 gosub40:gosub19000:goto50
+    4 poke52,142:poke56,142:clr:t$="" :REM JB 52=top of string stack, 56=bottom of string stack
+    5 gosub40:gosub19000:goto50: REM JB gosub=Disable interrupts and run-stops?, gosub=create functions, goto
     7 vz=va+2*v:pokevz,fnlb(zv):pokevz+1,zv/kp:return
     8 vz=va+2*v:zv=peek(vz)+kp*peek(vz+1):return
    10 pokea0,fnlb(f*kp):pokea1,f:pokea2,fnlb(t*kp):pokea3,t:pokea4,fnlb(l*kp)
@@ -10,7 +10,8 @@
    13 pokea5,l:syssb:return
    20 open15,8,15,"i":print#15,"s0:pick":close15:save"pick",8:end
    30 pokea1,y:pokea3,dy:pokea4,co:pokea0,x:pokea2,dx:syswn:return
-   40 poke792,193:poke808,234:poke56333,129:return
+   40 poke792,193:poke808,234:poke56333,129:return : REM JB 792=Low Byte address of the routine that follows a non-maskable interrupt, 808=Low Byte address of the KERNAL STOP routine, 56333=Interrupt Control
+and status
    41 poke56333,127:poke808,237:poke792,71:return
    50 vb=150*kp:wn=153.5*kp:cty=143*kp:cln=24:prs=148*kp
    55 pty=prs+32:mp=155.5*kp:tr=142*kp:so=158*kp:lg=147*kp:dta=6*kp
@@ -197,6 +198,7 @@
  2992 rr=rr+1:ifpeek(vb+14)=0thenonrr/199+1goto2992,2994
  2993 pokevb+16,0:return
  2994 gosub2980:goto2993
+ 
  3000 ifpeek(prs+18)thenprint"{clr}{down}{down}{down}{down}{down}{down}{down}{down}","loading more pirates!":return
  3005 fori=0to3:t(i)=-1:y(i)=999:nexti
  3010 a=cty+cc*cln:x=peek(a+1):y=peek(a+2)
@@ -254,7 +256,8 @@
  8020 co=2+6*rnd(0):gosub30:pokesp,176:z=aa+peek(aa-1)
  8030 poke214,y:print"{down}";:fori=aa+ntoaa+1step-1:poke211,x+1:ifz=ithenprint"{cyn}";
  8040 printmid$(t$,peek(i)+2,peek(i-1)-peek(i))
- 8045 nexti:print"{blk}";:ifcthenreturn
+ 8045 nexti:print"{blk}";:if c then return
+ 
  8050 z=n-z+aa:pokevb+16,x*4+4:pokevb+17,(y+z+dc)*8+60:poke53269,1:ifz=nthen2990
  8060 c=int(peek(vb+17)/8)-7-y:ifc<zthenc=z
  8070 ifc>=nthenc=n-1
@@ -337,12 +340,14 @@
  17810 pokea0,0:pokea4,213:pokea5,255:syskernel:poke53269,rr
  17820 return
  17900 rr=255:goto17805
+ REM JB function to created defined functions
  19000 deffndp(x)=peek(x)+256*peek(x+1)
  19001 deffnlb(x)=(x-32768)and255:deffnex(x)=peek(x)+256*(peek(x)>127)
  19002 deffnrg(x)=-x*(x>=0andx<256)-255*(x>255)
  19003 a0=165:a1=a0+1:a2=a1+1:a3=a2+1:a4=a3+1:a5=a4+1:a6=a5+1:kp=256:kk=kp*kp
  19004 k=149*kp:sb=k+41:mvb=k+70:bmvb=k+103:kernel=k+142:s64k=k+29:m64k=k+20
  19010 fd=035:var=159*kp:return
+ 
  19520 fori=0tolen(f$)-1:poke830+i,asc(mid$(f$,i+1,1)):nexti
  19526 pokea0,0:pokea1,8:pokea2,1:pokea4,186:pokea5,255:syske
  19528 pokea0,len(f$):pokea1,62:pokea2,3:pokea4,189:pokea5,255:syske:return
