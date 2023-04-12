@@ -3,8 +3,8 @@ BASIC Side 1
 It appears most of the variables are used as pointers to memory.
 
 $0023 35 = VAR fd
-$0034 52 = High byte FRETOP, top of string stack = Set to 142 on line 4
-$0038 56 = High byte MEMSIZ, highest BASIC RAM address / bottom of string stack = Set to 142 on line 4
+$0034 52 = High byte FRETOP, top of string stack = Set to $8E 142 on line 4
+$0038 56 = High byte MEMSIZ, highest BASIC RAM address / bottom of string stack = Set to $8E 142 on line 4
 $00A5 165 = VAR a0
 $00A6 166 = VAR a1
 $00A7 167 = VAR a2
@@ -40,8 +40,11 @@ $D018 53272 = Register VIC2 Memory pointers = Set to $38 56 (48+8) on line 12500
 $D01C 53276 = Register VIC2 Sprite multicolour
 $D01D 53277 = Register VIC2 Sprite X expansion
 $D020 53280 = Register VIC2 Border colour
-$D021 53282 = Register VIC2 Background colour 1
-$D022 53283 = Register VIC2 Background colour 2
+$D021 53281 = Register VIC2 Background colour 0
+$D022 53282 = Register VIC2 Background colour 1
+$D023 53283 = Register VIC2 Background colour 2
+$DD00 56576 = Register CIA2 Select the position of the VIC-memory
+$DD02 56578 = Register CIA2 Data direction Port A
 $ffff 65536 = VAR kk
 
 
