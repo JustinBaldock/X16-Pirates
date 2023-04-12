@@ -14,7 +14,12 @@ $00AA 170 = VAR a5
 $00AB 171 = VAR a6
 $0100 256 = VAR kp
 $0288 648 = Top of screen page memory = Set to $CC 204 on line 12500
+$0600 1536 = VAR dta
+$8E00 36352 = VAR tr
 $8F00 36608 = VAR cty
+$9300 37632 = VAR lg
+$9400 37888 = VAR prs
+$9420 37920 = VAR pty
 $9500 38144 = VAR k
 $9514 38164 = VAR m64k
 $951D 38173 = VAR s64k
@@ -24,6 +29,8 @@ $9567 38247 = VAR bmvb
 $958E 38286 = VAR kernel
 $9600 38400 = VAR vb
 $9980 39296 = VAR wn
+$9B80 39808 = VAR mp
+$9E00 40448 = VAR so
 $9F00 40704 = VAR var
 $D011 53265 = Register VIC2 Control register 1 (Y Scroll)
 $D015 53269 = Register VIC2 Sprite enable
@@ -39,4 +46,5 @@ $ffff 65536 = VAR kk
 
 
 Basic variables used
-mo = 1 , Set online 12500
+mo=1 , Set line 12500
+cln=24, Set line 50
