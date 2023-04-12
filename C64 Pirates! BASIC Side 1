@@ -294,10 +294,11 @@ and status
  12030 poke53270,24:poke53272,48+8:poke648,204:pokevb+15,0
  12040 sx=53248:sy=53249:sc=53287:poke53269,0:sp=peek(648)*kp+1016
  12050 fori=0to7:pokesp+i,176:pokesx+i+i,0:pokesy+i+i,0:nexti:return
+ REM JB FUNCTION TO DISPLAY TEXT MESSAGES
  12500 poke648,204:poke53272,48+8:rem text screen
- 12510 print"{blk}{clr}";:poke53269,0:poke53280,14:poke53281,1:poke53282,0:mo=1
- 12515 poke53271,0:poke53277,0:poke53276,0
- 12520 poke53270,24:poke53265,27:return
+ 12510 print"{blk}{clr}";:poke53269,0:poke53280,14:poke53281,1:poke53282,0:mo=1 : REM JB Turn off sprites, border=light blue, background colour 0 = white background colour 1=black
+ 12515 poke53271,0:poke53277,0:poke53276,0 : REM JB Turn off sprite Y and X expansion and turn off multicolour sprite
+ 12520 poke53270,24:poke53265,27:return : REM JB Set X scroll to 24, set Y scroll to 27
  12900 rem
  12910 f=0:t=va/kp:l=4:gosub12:poke53269,0
  12920 f$=f$+".sid":bf=174*kp
