@@ -357,4 +357,4 @@ and status
  22000 rem get disk id
  22060 rr=peek(53269):poke53269,0:open15,8,15,"i0:":open2,8,2,"#1"
  22070 print#15,"u1";2;0;18;0:print#15,"b-p";2;163:get#2,i$:close2:close15
- 22090 poke53269,rr:return
+ 22090 poke53269,rr:return : REM JB Enable or disable sprites
