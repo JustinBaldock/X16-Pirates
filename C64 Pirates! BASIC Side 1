@@ -310,11 +310,12 @@ and status
  12980 pokea0,0:pokea1,174:sysvar-24:ifpeek(prs-3)<4thenreturn
  12985 readx:ifxthen12985
  12989 return
+ REM JB FUNCTION SETUP STANDARD SCREEN
  13000 vb=150*256:pokevb+13,0:rem set up standard screen
- 13010 poke56578,peek(56578)or3:poke56576,(peek(56576)and252)or3
- 13020 poke53265,27
- 13030 poke53270,8:poke53272,21:poke648,4:sysvb+3
- 13040 poke53269,0:poke53280,0:poke53281,6:print"{cyn}{clr}":return
+ 13010 poke56578,peek(56578)or3:poke56576,(peek(56576)and252)or3 : REM JB Set CIA2 data port direction, setup VIC2 memory address
+ 13020 poke53265,27 : REM JB Set Y Scroll = 27
+ 13030 poke53270,8:poke53272,21:poke648,4:sysvb+3 : REM JB Set X Scroll = 8, VIC2 memory pointer, Set top screen memory, Sys vb+3?
+ 13040 poke53269,0:poke53280,0:poke53281,6:print"{cyn}{clr}":return : REM JB Turn off scriptes, Border=Black, Background colour 0 = blue
  14000 rem
  14010 bf=192*kp:ifpeek(bf+16)=170thengosub12000:return
  14012 bf=192*kp:f$="main.chr":gosub17800:f$="main":gosub17900
