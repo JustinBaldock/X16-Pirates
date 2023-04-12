@@ -1,0 +1,21 @@
+BASIC Side 1
+
+$0023 35 = VAR fd
+$00A5 165 = VAR a0
+$00A6 166 = VAR a1
+$00A7 167 = VAR a2
+$00A8 168 = VAR a3
+$00A9 169 = VAR a4
+$00AA 170 = VAR a5
+$00AB 171 = VAR a6
+$0100 256 = VAR kp
+$9500 38144 = VAR k
+$9514 38164 = VAR m64k
+$951D 38173 = VAR s64k
+$9529 38185 = VAR sb
+$9546 38214 = VAR mvb
+$9567 38247 = VAR bmvb
+$958E 38286 = VAR kernel
+$9F00 40704 = VAR var
+$D015 53269 = Register VIC2 Sprite enable
+$ffff 65536 = VAR kk
