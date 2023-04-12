@@ -1,5 +1,7 @@
 BASIC Side 1
 
+It appears most of the variables are used as pointers to memory.
+
 $0023 35 = VAR fd
 $0034 52 = High byte FRETOP, top of string stack = Set to 142 on line 4
 $0038 56 = High byte MEMSIZ, highest BASIC RAM address / bottom of string stack = Set to 142 on line 4
@@ -12,6 +14,7 @@ $00AA 170 = VAR a5
 $00AB 171 = VAR a6
 $0100 256 = VAR kp
 $0288 648 = Top of screen page memory = Set to $CC 204 on line 12500
+$8F00 36608 = VAR cty
 $9500 38144 = VAR k
 $9514 38164 = VAR m64k
 $951D 38173 = VAR s64k
@@ -19,8 +22,12 @@ $9529 38185 = VAR sb
 $9546 38214 = VAR mvb
 $9567 38247 = VAR bmvb
 $958E 38286 = VAR kernel
+$9600 38400 = VAR vb
+$9980 39296 = VAR wn
 $9F00 40704 = VAR var
+$D011 53265 = Register VIC2 Control register 1 (Y Scroll)
 $D015 53269 = Register VIC2 Sprite enable
+$D016 53270 = Register VIC2 Control register 2 (X Scroll)
 $D017 53271 = Register VIC2 Sprite Y expansion
 $D018 53272 = Register VIC2 Memory pointers = Set to $38 56 (48+8) on line 12500
 $D01C 53276 = Register VIC2 Sprite multicolour
@@ -32,4 +39,4 @@ $ffff 65536 = VAR kk
 
 
 Basic variables used
-mo = Set online 12500
+mo = 1 , Set online 12500
